@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "puppeteer": "^21.6.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "name": "ticketbot",
+  "version": "1.0.0",
+  "main": "Index.js",
+  "scripts": {
+    "biletino": "nodemon . ",
+    "passo": "nodemon passo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M1Dev",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biletino Automation</title>
+</head>
+<body>
+  <label for="email">Email:</label>
+  <input type="text" id="email" placeholder="Enter email">
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" placeholder="Enter password">
+
+  <label for="url">URL:</label>
+  <input type="text" id="url" placeholder="Enter URL">
+
+  <button id="startAutomation" disabled>Start Automation</button>
+
+  <script>
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const urlInput = document.getElementById('url');
+    const automationButton = document.getElementById('startAutomation');
+
+    // Enable the button only when all input fields have values
+    [emailInput, passwordInput, urlInput].forEach(input => {
+      input.addEventListener('input', () => {
+        automationButton.disabled = !emailInput.value || !passwordInput.value || !urlInput.value;
+      });
+    });
+
+    // Run the puppeteer script when the button is clicked
+    automationButton.addEventListener('click', async () => {
+      // Make a POST request with the input values
+      await fetch('/runAutomation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailInput.value,
+          password: passwordInput.value,
+          url: urlInput.value,
+        }),
+      });
+    });
+  </script>
+</body>
+</html>
