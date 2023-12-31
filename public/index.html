@@ -33,7 +33,7 @@
     // Run the puppeteer script when the button is clicked
     automationButton.addEventListener('click', async () => {
       // Make a POST request with the input values
-      await fetch('/runAutomation', {
+      await fetch('https://ticket-bot-m1dev.vercel.app/runAutomation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
