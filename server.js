@@ -50,6 +50,8 @@ app.post('/runAutomation', async (req, res) => {
     await page.waitForTimeout(3000);
     await page.click("#account-signinemailpassword-continue", btn => btn.click());
 
+    console.log(email, url)
+
     res.status(200).send('Automation completed successfully');
   } catch (error) {
     console.error('Error:', error);
